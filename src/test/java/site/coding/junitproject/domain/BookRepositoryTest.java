@@ -75,6 +75,24 @@ class BookRepositoryTest {
     }
 
     // 4. 책 수정
+    @Sql("classpath:db/tableInit.sql")
+    @Test
+    public void 책수정_test() throws Exception {
+        //given
+        Long id = 1L;
+        String title = "junit5";
+        String author = "Cho Ha Dam";
+        Book book = new Book(id, title, author);
+        bookRepository.findAll().stream().forEach(
+                book0 -> System.out.println("book0 = " + book0.getAuthor())
+        );
+        //when
+        Book bookPS = bookRepository.save(book);
+        //then
+        bookRepository.findAll().stream().forEach(
+                book1 -> System.out.println("book1 = " + book1.getAuthor())
+        );
+    }
 
     // 5. 책 삭제
     @Sql("classpath:db/tableInit.sql")
