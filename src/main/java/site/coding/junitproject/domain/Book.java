@@ -3,16 +3,25 @@ package site.coding.junitproject.domain;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @NoArgsConstructor
 @Getter
 @Entity
-public class Book {
+public class Book implements Serializable {
 
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "BOOK_SEQ")
     private Long id;
+
+
+//    @GenericGenerator(name = "id2", strategy = "site.coding.junitproject.domain.BookIdGenerator")
+//    @Column(columnDefinition="serial")
+//    @GeneratedValue(generator = "id2")
+//    private String id2;
     @Column(length = 50, nullable = false)
     private String title;
     @Column(length = 20, nullable = false)
