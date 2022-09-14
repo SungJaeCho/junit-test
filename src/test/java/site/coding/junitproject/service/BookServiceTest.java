@@ -14,6 +14,7 @@ import site.coding.junitproject.web.dto.BookSaveRequestDto;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -74,4 +75,42 @@ class BookServiceTest {
 
     }
 
+    @Test
+    public void 책한건보기_테스트() throws Exception {
+        //given
+        Long id = 1L;
+        Book book = new Book(1L, "화산귀환", "저자");
+        Optional<Book> bookOP = Optional.of(book);
+
+        //stub
+        when(bookRepository.findById(id)).thenReturn(bookOP);
+
+        //when
+        BookResponseDto bookResponseDto = bookService.책한권보기(id);
+
+        //then
+        assertThat(bookResponseDto.getTitle()).isEqualTo(book.getTitle());
+        assertThat(bookResponseDto.getAuthor()).isEqualTo(book.getAuthor());
+    }
+
+    @Test
+    public void 책수정하기_테스트() throws Exception {
+        //given
+        Long id = 1L;
+        BookSaveRequestDto bookSaveRequestDto = new BookSaveRequestDto();
+        bookSaveRequestDto.setTitle("JPA프로그래밍");
+        bookSaveRequestDto.setAuthor("김영한");
+
+        //stub
+        Book book = new Book(1L, "화산귀환", "저자");
+        Optional<Book> bookOP = Optional.of(book);
+        when(bookRepository.findById(id)).thenReturn(bookOP);
+
+        //when
+        BookResponseDto bookResponseDto = bookService.책수정하기(id, bookSaveRequestDto);
+
+        //then
+        assertThat(bookResponseDto.getTitle()).isEqualTo(bookSaveRequestDto.getTitle());
+        assertThat(bookResponseDto.getAuthor()).isEqualTo(bookSaveRequestDto.getAuthor());
+    }
 }
