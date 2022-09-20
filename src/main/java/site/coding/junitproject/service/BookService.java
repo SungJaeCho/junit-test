@@ -6,8 +6,8 @@ import org.springframework.transaction.annotation.Transactional;
 import site.coding.junitproject.domain.Book;
 import site.coding.junitproject.domain.BookRepository;
 import site.coding.junitproject.util.MailSender;
-import site.coding.junitproject.web.dto.BookResponseDto;
-import site.coding.junitproject.web.dto.BookSaveRequestDto;
+import site.coding.junitproject.web.dto.response.BookResponseDto;
+import site.coding.junitproject.web.dto.request.BookSaveRequestDto;
 
 import java.util.List;
 import java.util.Optional;

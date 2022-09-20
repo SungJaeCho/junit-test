@@ -3,8 +3,7 @@ package site.coding.junitproject.domain;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.GenericGenerator;
-import site.coding.junitproject.web.dto.BookResponseDto;
+import site.coding.junitproject.web.dto.response.BookResponseDto;
 
 import javax.persistence.*;
 import java.io.Serializable;

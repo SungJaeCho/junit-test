@@ -1,6 +1,5 @@
 package site.coding.junitproject.service;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -9,8 +8,8 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import site.coding.junitproject.domain.Book;
 import site.coding.junitproject.domain.BookRepository;
 import site.coding.junitproject.util.MailSender;
-import site.coding.junitproject.web.dto.BookResponseDto;
-import site.coding.junitproject.web.dto.BookSaveRequestDto;
+import site.coding.junitproject.web.dto.response.BookResponseDto;
+import site.coding.junitproject.web.dto.request.BookSaveRequestDto;
 
 import java.util.ArrayList;
 import java.util.List;

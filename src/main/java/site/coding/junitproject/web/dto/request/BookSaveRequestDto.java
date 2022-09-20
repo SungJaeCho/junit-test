@@ -1,4 +1,4 @@
-package site.coding.junitproject.web.dto;
+package site.coding.junitproject.web.dto.request;
 
 import lombok.Getter;
 import lombok.Setter;
