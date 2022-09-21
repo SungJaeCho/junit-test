@@ -4,6 +4,6 @@ Content-Type: application/json
 Authorization: Bearer {{authorizationKey}}
 
 {
-  "title": "스프링",
+  "title": "",
   "author": "저어자"
 }
